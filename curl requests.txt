@@ -1,0 +1,40 @@
+curl --location --request GET 'http://localhost:8080/food/search' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+        "name": "Chicken"
+}'
+
+curl --location --request GET 'http://localhost:8080/food' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+        "id": "1"
+}'
+
+curl --location --request PUT 'http://localhost:8080/food' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+        "name": "Sausage",
+        "type": "Meat",
+        "quantity": 19,
+        "id": "1"
+}'
+
+curl --location --request GET 'http://localhost:8080/food' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+        "id": "1"
+}'
+
+curl --location --request POST 'http://localhost:8080/food' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+        "name": "Mango",
+        "type": "Fruit",
+        "quantity": 31
+}'
+
+curl --location --request GET 'http://localhost:8080/food' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+        "id": "50"
+}'
