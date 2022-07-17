@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class FoodService {
@@ -17,12 +18,19 @@ public class FoodService {
         this.foodRepository = foodRepository;
     }
 
-    @GetMapping
-    public List<Food> getFood() {
-        return foodRepository.findAll();
+    public Optional<List<Food>> getAllFoods() {
+        return Optional.of(foodRepository.findAll());
     }
 
-    public void saveFood(Food food) {
-        foodRepository.save(food);
+    public Food getFoodById(Long id) throws NoSuchFieldException {
+        Optional<Food> food = foodRepository.findById(id);
+        if (food.isPresent()) {
+            return food.get();
+        }
+        throw new NoSuchFieldException("Food ID '" + id + "' not found");
+    }
+
+    public Food saveFood(Food food) {
+        return foodRepository.save(food);
     }
 }

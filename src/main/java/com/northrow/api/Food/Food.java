@@ -11,7 +11,7 @@ public class Food {
     @Id
     @SequenceGenerator(name = "food_seq", sequenceName = "food_seq", allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "food_seq")
-    private long Id;
+    private Long Id;
     private String name;
     private String type;
     private int quantity;
@@ -24,7 +24,7 @@ public class Food {
         this.quantity = quantity;
     }
 
-    public long getId() {
+    public Long getId() {
         return Id;
     }
 
