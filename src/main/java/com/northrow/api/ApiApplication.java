@@ -11,11 +11,5 @@ public class ApiApplication {
 
 	public static void main(String[] args) {
 		ConfigurableApplicationContext configurableApplicationContext = SpringApplication.run(ApiApplication.class, args);
-
-		//FoodRepository foodRepository = configurableApplicationContext.getBean(FoodRepository.class);
-
-		//final FoodService foodService = new FoodService();
-		//foodRepository.save(foodService.getFood().get(0));
-		//foodRepository.save(foodService.getFood().get(1));
 	}
 }
