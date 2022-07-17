@@ -18,6 +18,10 @@ public class Food {
 
     public Food() {}
 
+    public Food(Long id) {
+        Id = id;
+    }
+
     public Food(String name, String type, int quantity) {
         this.name = name;
         this.type = type;

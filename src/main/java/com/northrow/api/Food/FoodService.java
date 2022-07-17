@@ -3,7 +3,6 @@ package com.northrow.api.Food;
 import com.northrow.api.repository.FoodRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.GetMapping;
 
 import java.util.List;
 import java.util.Optional;
@@ -22,22 +21,17 @@ public class FoodService {
         return Optional.of(foodRepository.findAll());
     }
 
-    public Food getFoodById(Long id) throws NoSuchFieldException {
+    public Food getFoodById(Long id)  {
         Optional<Food> food = foodRepository.findById(id);
-        if (food.isPresent()) {
-            return food.get();
-        }
-        throw new NoSuchFieldException("Food ID '" + id + "' not found");
+        return food.orElse(null);
+
     }
 
-    public Food getFoodByName(String name) throws NoSuchFieldException {
+    public Food getFoodByName(String name) {
         Optional<Food> food = foodRepository.findByName(name);
 
-        if(food.isPresent()) {
-            return food.get();
-        }
+        return food.orElse(null);
 
-        throw new NoSuchFieldException("Food '" + name + "' not found");
     }
 
     public Food saveFood(Food food) {
