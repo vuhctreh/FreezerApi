@@ -40,7 +40,7 @@ public class FoodController {
     public ResponseEntity<Food> getFood(@RequestBody Food food) {
         Food resp = foodService.getFoodById(food.getId());
 
-        if(resp == null) throw new ResourceNotFoundException("Food with ID " + food.getId() + "was not found.");
+        if(resp == null) throw new ResourceNotFoundException("Food with ID " + food.getId() + " was not found.");
 
         return new ResponseEntity<>(foodService.getFoodById(food.getId()), HttpStatus.OK);
     }
