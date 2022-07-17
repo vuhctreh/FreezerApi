@@ -10,7 +10,7 @@ import java.util.List;
 @Configuration
 public class FoodConfig {
     @Bean
-    CommandLineRunner studentDataLoader(FoodRepository repository) {
+    CommandLineRunner foodDataLoader(FoodRepository repository) {
         return args -> {
             Food pizza = new Food("Pizza", "Pizza", 5);
             Food chicken = new Food("Chicken", "Chicken", 2);
