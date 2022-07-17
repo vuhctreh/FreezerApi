@@ -7,8 +7,18 @@ import org.springframework.context.annotation.Configuration;
 
 import java.util.List;
 
+/**
+ * The type Food config.
+ */
 @Configuration
 public class FoodConfig {
+    /**
+     * Food data loader command line runner.
+     * Adds {@code pizza} and {@code chicken} objects to the repository.
+     *
+     * @param repository the repository
+     * @return the command line runner
+     */
     @Bean
     CommandLineRunner foodDataLoader(FoodRepository repository) {
         return args -> {
