@@ -30,6 +30,16 @@ public class FoodService {
         throw new NoSuchFieldException("Food ID '" + id + "' not found");
     }
 
+    public Food getFoodByName(String name) throws NoSuchFieldException {
+        Optional<Food> food = foodRepository.findByName(name);
+
+        if(food.isPresent()) {
+            return food.get();
+        }
+
+        throw new NoSuchFieldException("Food '" + name + "' not found");
+    }
+
     public Food saveFood(Food food) {
         return foodRepository.save(food);
     }

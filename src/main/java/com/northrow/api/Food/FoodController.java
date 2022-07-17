@@ -31,12 +31,11 @@ public class FoodController {
         foodService.saveFood(food);
     }
 
-    //@GetMapping("/search")
-    //public ResponseEntity<Food> searchFood(String name) {
-    //return new ResponseEntity<>(foodService.findByName(name), HttpStatus.OK)
-    //}
+    @GetMapping("/search")
+    public ResponseEntity<Food> searchFood(@RequestBody Food food) throws NoSuchFieldException {
+        return new ResponseEntity<>(foodService.getFoodByName(food.getName()), HttpStatus.OK);
+    }
 
 }
 
 //TODO - Set proper return for updateFood, make registerFood JSON.
-//TODO - Add search by name
