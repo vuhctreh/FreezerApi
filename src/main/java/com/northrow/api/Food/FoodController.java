@@ -6,6 +6,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+import java.util.Optional;
+
 @RestController
 @RequestMapping("/food")
 public class FoodController {
@@ -47,6 +50,11 @@ public class FoodController {
         if(resp == null) throw new ResourceNotFoundException("Food with name " + food.getName() + " was not found.");
 
         return new ResponseEntity<>(foodService.getFoodByName(food.getName()), HttpStatus.OK);
+    }
+
+    @GetMapping("/all")
+    public Optional<List<Food>> getAllFood() {
+        return foodService.getAllFoods();
     }
 }
 
