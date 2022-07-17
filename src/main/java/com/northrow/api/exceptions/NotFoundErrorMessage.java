@@ -4,12 +4,12 @@ import org.springframework.http.HttpStatus;
 
 import java.time.LocalDateTime;
 
-public class ErrorMessage {
+public class NotFoundErrorMessage {
     private final LocalDateTime date;
     private final String reason;
     private final HttpStatus status;
 
-    public ErrorMessage(LocalDateTime date, String reason, HttpStatus status) {
+    public NotFoundErrorMessage(LocalDateTime date, String reason, HttpStatus status) {
         this.date = date;
         this.reason = reason;
         this.status = status;

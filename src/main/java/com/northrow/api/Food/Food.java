@@ -1,7 +1,5 @@
 package com.northrow.api.Food;
 
-import org.springframework.stereotype.Service;
-
 import javax.persistence.*;
 
 @Entity

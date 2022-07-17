@@ -6,8 +6,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-
 @RestController
 @RequestMapping("/food")
 public class FoodController {
@@ -34,8 +32,12 @@ public class FoodController {
     }
 
     @PutMapping
-    public void updateFood(@RequestBody Food food) {
-        foodService.saveFood(food);
+    public ResponseEntity<Food> updateFood(@RequestBody Food food) {
+        Food resp = foodService.saveFood(food);
+
+        if(resp == null) throw new ResourceNotFoundException("Food with ID " + food.getId() + "was not found no updated.");
+
+        return new ResponseEntity<>(resp, HttpStatus.OK);
     }
 
     @GetMapping("/search")
@@ -48,4 +50,4 @@ public class FoodController {
     }
 }
 
-//TODO - Set proper return for updateFood, error handling, comments.
+//TODO - comments, tests.

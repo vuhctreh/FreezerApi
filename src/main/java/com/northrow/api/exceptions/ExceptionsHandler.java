@@ -1,5 +1,6 @@
 package com.northrow.api.exceptions;
 
+import com.northrow.api.Food.Food;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -12,10 +13,10 @@ public class ExceptionsHandler {
 
     @ExceptionHandler(value = {ResourceNotFoundException.class})
     public ResponseEntity<Object> handleException(ResourceNotFoundException e) {
-        HttpStatus status = HttpStatus.BAD_REQUEST;
+        HttpStatus status = HttpStatus.NOT_FOUND;
 
-        ErrorMessage error = new ErrorMessage(LocalDateTime.now() ,e.getMessage(), status);
+        NotFoundErrorMessage error = new NotFoundErrorMessage(LocalDateTime.now() ,e.getMessage(), status);
 
-        return new ResponseEntity<Object>(error, status);
+        return new ResponseEntity<>(error, status);
     }
 }
